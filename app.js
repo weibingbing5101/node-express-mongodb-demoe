@@ -68,7 +68,7 @@ app.use('/api', require('./routers/api'));
 app.use('/', require('./routers/main'));
 
 //监听http请求
-mongoose.connect('mongodb://localhost:27018/blog', function(err) {
+mongoose.connect('mongodb://127.0.0.1:27017', function(err) {
     if (err) {
         console.log('数据库连接失败');
     } else {
