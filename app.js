@@ -69,6 +69,9 @@ app.use('/', require('./routers/main'));
 
 //监听http请求
 mongoose.connect('mongodb://127.0.0.1:27017', function(err) {
+    process.env.webpackEnv = '2222'; // 用于判断环境 和golbal一样
+    console.log(process.env.webpackEnv);
+
     if (err) {
         console.log('数据库连接失败');
     } else {
@@ -76,3 +79,63 @@ mongoose.connect('mongodb://127.0.0.1:27017', function(err) {
         app.listen(8081);
     }
 });
+
+/*
+    until 工具模块  不需要安装
+
+    1、继承
+        util.inherits(child, parent);
+        let child = new children();
+        console.log(child.eat)
+        Object.setPrototypeOf(children.prototype, parent.prototype);
+
+    2、类型判断
+        Object.prototye.toString.call();   console.log(Object.prototype.toString.call(undefined) === '[Object undefined]')
+
+        util.isArray()  return true || false
+
+
+    3、util 和 events 发布定阅模式
+
+    例
+    let EventEmitter = require('events'); //核心模块
+    let util = require('util');
+
+    function Girl() {}
+    util.inherits(Girl, EventEmitter);
+    let girl = new Girl();
+
+    function cry(xxx) {
+        console.log('哭', xxx);
+    }
+    //once removeListener emit on
+    girl.once('失恋', cry);
+    girl.removeListener('失恋', cry);
+    girl.emit('失恋', 1);
+    girl.emit('失恋', 1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
+
+    
+
+    
+
+
+
+
+
+
+
+
