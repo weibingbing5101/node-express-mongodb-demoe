@@ -2,13 +2,13 @@
  * Created by 毅 on 2016/8/28.
  */
 
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 
-var Category = require('../models/Category');
-var Content = require('../models/Content');
+let Category = require('../models/Category');
+let Content = require('../models/Content');
 
-var data;
+let data;
 
 /*
 * 处理通用的数据
