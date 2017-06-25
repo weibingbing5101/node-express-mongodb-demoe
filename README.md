@@ -2,7 +2,9 @@
 
 执行mongodb
 
-mongod --config /usr/local/etc/mongod.conf 
+mac   mongod --config /usr/local/etc/mongod.conf 
+
+win   mongod安装目录 cmd执行  mongod --dbpath=E:\xxdata
 
 安装mongoDB http://www.cnblogs.com/junqilian/p/4109580.html
 
