@@ -33,7 +33,7 @@ app.set('view engine', 'html');
 //在开发过程中，需要取消模板缓存
 swig.setDefaults({ cache: false });
 
-//bodyparser设置
+//bodyparser设置  req.body
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //设置cookie
