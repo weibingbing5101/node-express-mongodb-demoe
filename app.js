@@ -9,6 +9,7 @@ var express = require('express');
 var swig = require('swig');
 //加载数据库模块
 var mongoose = require('mongoose');
+mongoose.Promise = Promise;
 //加载body-parser，用来处理post提交过来的数据
 var bodyParser = require('body-parser');
 //加载cookies模块
@@ -36,8 +37,12 @@ swig.setDefaults({ cache: false });
 //bodyparser设置  req.body
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
 //设置cookie
 app.use(function(req, res, next) {
+    // 登陆成功后 给 req.session.userInfo 赋值
+    // 利用中间件检查sessions  并赋值给模板传递数据   
+    // res.locals.userInfo = req.session  res.locals是往模板传递所有数据的对象集合
     req.cookies = new Cookies(req, res);
 
     //解析登录用户的cookie信息
@@ -51,6 +56,7 @@ app.use(function(req, res, next) {
                 req.userInfo.isAdmin = Boolean(userInfo.isAdmin);
                 next();
             })
+            // next();
         } catch (e) {
             next();
         }
@@ -59,7 +65,6 @@ app.use(function(req, res, next) {
         next();
     }
 });
-
 /*
  * 根据不同的功能划分模块
  * */
@@ -68,7 +73,7 @@ app.use('/api', require('./routers/api'));
 app.use('/', require('./routers/main'));
 
 //监听http请求
-mongoose.connect('mongodb://127.0.0.1:27017', function(err) {
+mongoose.connect('mongodb://127.0.0.1:27017/test', function(err) {
     process.env.webpackEnv = '2222'; // 用于判断环境 和golbal一样
     console.log(process.env.webpackEnv);
 
