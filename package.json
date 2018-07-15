@@ -17,10 +17,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
-  "config": {
-    "ghooks": {
-      "commit-msg": "./validate-commit-msg.js"
-    }
-  }
+  "license": "ISC"
 }

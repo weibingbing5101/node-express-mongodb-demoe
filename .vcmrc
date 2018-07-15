@@ -11,5 +11,5 @@
   "subjectPattern": ".+",
   "subjectPatternErrorMsg": "subject does not match subject pattern!",
   "helpMessage": "",
-  "autoFix": false
+  "autoFix": true
 }
