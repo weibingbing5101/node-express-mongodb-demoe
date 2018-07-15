@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
-    "commitizen": "^2.10.1"
+    "commitizen": "^2.10.1",
+    "ghooks": "^2.0.4"
   },
   "devDependencies": {
     "body-parser": "^1.15.2",
@@ -24,6 +25,9 @@
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
+    },
+    "ghooks": {
+      "commit-msg": "./validate-commit-msg.js"
     }
   }
 }
